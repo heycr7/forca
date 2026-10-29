@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Descubra a palavra secreta antes que o bonequinho seja desenhado. Um jogo da forca grátis."
+    />
+    <meta name="theme-color" content="#f7f5f0" />
+    <title>Forca — descubra a palavra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Forca, início">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>forca<span class="brand-period">.</span></span>
+        </a>
+        <span class="topbar-note">um clássico, do seu jeito</span>
+      </header>
+
+      <section class="game-card" aria-labelledby="game-title">
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow">JOGO DE PALAVRAS</p>
+            <h1 id="game-title">Descubra a palavra<span class="heading-period">.</span></h1>
+            <p class="subtitle">Escolha uma letra por vez. Você tem 6 chances.</p>
+          </div>
+          <button class="new-game-button" id="new-game" type="button">
+            <span aria-hidden="true">↻</span>
+            Novo jogo
+          </button>
+        </div>
+
+        <div class="game-board">
+          <div class="drawing-panel" aria-label="Desenho da forca">
+            <svg
+              class="hangman"
+              viewBox="0 0 220 230"
+              role="img"
+              aria-labelledby="drawing-title"
+            >
+              <title id="drawing-title">Desenho da forca</title>
+              <g class="scaffold">
+                <path d="M25 210h170M65 210V24h105v24" />
+                <path d="M65 58l42-34" />
+              </g>
+              <g class="person">
+                <circle class="drawing-part" data-part="1" cx="170" cy="68" r="20" />
+                <path class="drawing-part" data-part="2" d="M170 88v54" />
+                <path class="drawing-part" data-part="3" d="M170 103l-25 23" />
+                <path class="drawing-part" data-part="4" d="M170 103l25 23" />
+                <path class="drawing-part" data-part="5" d="M170 142l-22 32" />
+                <path class="drawing-part" data-part="6" d="M170 142l22 32" />
+              </g>
+            </svg>
+            <div class="mistakes-counter" aria-live="polite">
+              <span class="counter-number" id="mistakes">0</span>
+              <span class="counter-divider">/</span>
+              <span>6 erros</span>
+            </div>
+          </div>
+
+          <div class="play-panel">
+            <div class="hint-box">
+              <span class="hint-icon" aria-hidden="true">?</span>
+              <div>
+                <span class="hint-label">DICA</span>
+                <p id="hint">Carregando dica...</p>
+              </div>
+            </div>
+
+            <div
+              class="word"
+              id="word"
+              aria-label="Palavra secreta"
+              aria-live="polite"
+            ></div>
+
+            <p class="keyboard-label">ESCOLHA UMA LETRA</p>
+            <div class="keyboard" id="keyboard" aria-label="Teclado de letras"></div>
+          </div>
+        </div>
+
+        <div class="game-footer">
+          <p id="game-message" role="status" aria-live="polite">
+            Boa sorte! A dica pode ajudar.
+          </p>
+          <span class="footer-note">feito para jogar mais uma vez <span aria-hidden="true">✳</span></span>
+        </div>
+      </section>
+
+      <footer class="page-footer">Pense com calma. Cada letra conta.</footer>
+    </main>
+  </body>
+</html>
